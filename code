@@ -1,0 +1,19 @@
+cokeprice = 0.50
+inserted = 0.0  # Initialize inserted as a floating-point number
+
+validcoins = [0.05, 0.10, 0.25]
+
+while inserted < cokeprice:
+    insertednow = float(input('Insert a coin: '))  # Convert user input to float
+    if insertednow not in validcoins:
+        print('Insert a valid coin.')
+    else:
+        inserted += insertednow
+        amount_due = cokeprice - inserted  # Calculate the remaining amount due
+        if amount_due > 0:
+            print(f'Amount due: ${amount_due:.2f}')  # Display the remaining amount with two decimal places
+        elif amount_due == 0:
+            print('Enjoy your drink.')
+            break  # Exit the loop when the amount is sufficient
+        else:
+            print('Amount due: ${:.2f}'.format(amount_due))
